@@ -1,19 +1,19 @@
-from food_network_wrapper import rs
+from food_network_wrapper import recipe_search
 
 
 def test_not_empty():
-    assert len(rs("apple"))
+    assert len(recipe_search("apple"))
 
 
 def test_empty():
-    assert rs("ajslkdgajslkg") == []
-    assert rs("apple", 1000000000000) == []
-    assert rs("apple", -1) == []
+    assert recipe_search("ajslkdgajslkg") == []
+    assert recipe_search("apple", 1000000000000) == []
+    assert recipe_search("apple", -1) == []
 
 
 def test_accurate():
     query = "Pan-Seared Salmon with Kale and Apple Salad"
-    results = rs(query)
+    results = recipe_search(query)
     rt = results[0]
     assert rt.title == query
     assert rt.rating == "5.0"

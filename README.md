@@ -4,7 +4,9 @@ Search your favorite recipes from [Food Network](http://foodnetwork.com) and the
 
 ## Installation
 
-`pip install food_network_wrapper`
+```
+pip install food_network_wrapper
+```
 
 ## Usage
 

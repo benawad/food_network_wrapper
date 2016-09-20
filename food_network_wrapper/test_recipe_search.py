@@ -19,5 +19,5 @@ def test_accurate():
     assert rt.rating == "5.0"
     assert rt.review_count == "12"
     assert rt.total_time == "40 min"
-    assert rt.url == "/recipes/food-network-kitchens/pan-seared-salmon-with-kale-and-apple-salad-recipe.html"
+    assert rt.url == "http://www.foodnetwork.com/recipes/food-network-kitchens/pan-seared-salmon-with-kale-and-apple-salad-recipe.html"
     assert rt.picture_url == "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2013/11/25/0/FNK_pan-seared-salmon-with-kale-apple-salad_s4x3.jpg.rend.sni5col.jpeg"

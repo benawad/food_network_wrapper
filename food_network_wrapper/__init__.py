@@ -13,7 +13,7 @@ def _parse_recipe_thumbnail(recipe_thumbnail):
     try:
         h6 = recipe_thumbnail.find("h6")
         title = h6.text.strip()
-        url = h6.find("a").attrs['href']
+        url = base_url + h6.find("a").attrs['href']
     except AttributeError:
         title = ""
         url = ""

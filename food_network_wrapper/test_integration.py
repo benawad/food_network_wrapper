@@ -1,4 +1,4 @@
-from food_network_wrapper import recipe_search, scrape_recipe, base_url
+from food_network_wrapper import recipe_search, scrape_recipe
 
 def test_search_and_scrape():
     page = 1
@@ -7,5 +7,5 @@ def test_search_and_scrape():
         if len(rthumbnails) == 0 or page > 1:
             break
         for i in rthumbnails:
-            assert scrape_recipe(base_url + i.url)
+            assert scrape_recipe(i.url)
         page += 1

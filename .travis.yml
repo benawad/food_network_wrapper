@@ -7,7 +7,10 @@ python:
   - "3.5"
 
 install:
-  - pip install beautifulsoup4 lxml requests pytest
+  - pip install beautifulsoup4 lxml requests coverage coveralls 
 
 script:
-  - pytest
+  - coverage run tests.py
+
+after_success:
+  - coveralls

@@ -1,6 +1,8 @@
-from distutils.core import setup
+from setuptools.command.test import test as TestCommand
+from setuptools import setup
 
 import os
+import sys
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.md')).read()
 
@@ -18,9 +20,9 @@ setup(
     keywords = ['cooking', 'recipes', 'recipe', 'python', 'harvest', 'foodnetwork', 'scrape', 'scraping'], 
     long_description=README,
     install_requires=[
-        "beautifulsoup4>=4.5.1",
-        "lxml>=3.6.4",
-        "requests>=2.11.1",
+        "beautifulsoup4",
+        "lxml",
+        "requests",
     ],
     classifiers=[
         'Intended Audience :: Developers',

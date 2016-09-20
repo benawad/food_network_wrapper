@@ -51,12 +51,14 @@ def _parse_recipe_list(recipe_thumbails):
     articles = recipe_thumbails.find_all("article", {"class": "recipe"})
     return list(map(_parse_recipe_thumbnail, articles))
 
-def recipe_search(query, page=1):
+def recipe_search(query, page=1, sortby="Best Match"):
     """
     max of 10 recipes per request
     return: RThumbnail list
     """
     url = "http://www.foodnetwork.com/search/search-results.recipes.html?searchTerm=%s&page=%s&form=global&_charset_=UTF-8" % (query, page)
+    if sortby == "rating" or sortby == "popular":
+        url += "&sortBy=" + sortby
     r = requests.get(url)
     soup = BeautifulSoup(r.text, "lxml")
     recipe_thumbails = soup.find("ul", {"class": "slat feed"})

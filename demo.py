@@ -1,3 +1,3 @@
 import food_network_wrapper
 
-print(food_network_wrapper.recipe_search("apples", -5))
+print(food_network_wrapper.scrape_recipe("http://www.foodnetwork.com/recipes/apple-crisp.html"))

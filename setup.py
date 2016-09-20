@@ -11,7 +11,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name = 'food_network_wrapper',
     packages = ['food_network_wrapper'], 
-    version = '0.2',
+    version = '0.3',
     description = 'Allows you to easily search and scrape recipes from http://foodnetwork.com',
     author = 'Ben Awad',
     author_email = 'benawad97@gmail.com',
@@ -27,8 +27,7 @@ setup(
     classifiers=[
         'Intended Audience :: Developers',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',

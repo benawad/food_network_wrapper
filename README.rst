@@ -1,7 +1,7 @@
 food\_network\_wrapper
 ======================
 
-|Build Status| |Coverage Status| |PyPI version| |PyPI|
+|Build Status| |Coverage Status| |PyPI| |PyPI|
 
 Search your favorite recipes from `Food
 Network <http://foodnetwork.com>`__ and then scrape their contents.
@@ -58,13 +58,14 @@ Use search and scrape together
        recipe = scrape_recipe(i.url) 
        recipes.append(recipe)
 
-For more examples check out ``demo.py``
+For more examples check out
+```demo.py`` <https://github.com/benawad/food_network_wrapper/blob/master/demo.py>`__
 
 .. |Build Status| image:: https://travis-ci.org/benawad/food_network_wrapper.svg?branch=master
    :target: https://travis-ci.org/benawad/food_network_wrapper
 .. |Coverage Status| image:: https://coveralls.io/repos/github/benawad/food_network_wrapper/badge.svg?branch=master
    :target: https://coveralls.io/github/benawad/food_network_wrapper?branch=master
-.. |PyPI version| image:: https://badge.fury.io/py/food_network_wrapper.svg
-   :target: https://badge.fury.io/py/food_network_wrapper
+.. |PyPI| image:: https://img.shields.io/pypi/v/food_network_wrapper.svg?maxAge=2592000
+   :target: https://pypi.python.org/pypi/food_network_wrapper
 .. |PyPI| image:: https://img.shields.io/pypi/pyversions/Django.svg?maxAge=2592000
-   :target: https://badge.fury.io/py/food_network_wrapper
+   :target: https://pypi.python.org/pypi/food_network_wrapper

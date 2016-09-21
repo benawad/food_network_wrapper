@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/benawad/food_network_wrapper.svg?branch=master)](https://travis-ci.org/benawad/food_network_wrapper)
 [![Coverage Status](https://coveralls.io/repos/github/benawad/food_network_wrapper/badge.svg?branch=master)](https://coveralls.io/github/benawad/food_network_wrapper?branch=master)
 [![PyPI](https://img.shields.io/pypi/v/food_network_wrapper.svg?maxAge=2592000)](https://pypi.python.org/pypi/food_network_wrapper)
-[![PyPI](https://img.shields.io/pypi/pyversions/Django.svg?maxAge=2592000)](https://pypi.python.org/pypi/food_network_wrapper)
+[![Python Versions](https://img.shields.io/pypi/pyversions/Django.svg?maxAge=2592000)](https://pypi.python.org/pypi/food_network_wrapper)
 
 Search your favorite recipes from [Food Network](http://foodnetwork.com) and then scrape their contents.
 

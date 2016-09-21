@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name = 'food_network_wrapper',
     packages = ['food_network_wrapper'], 
-    version = '1.0',
+    version = '1.2',
     description = 'Allows you to easily search and scrape recipes from http://foodnetwork.com',
     author = 'Ben Awad',
     author_email = 'benawad97@gmail.com',

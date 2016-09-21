@@ -1,7 +1,7 @@
 food\_network\_wrapper
 ======================
 
-|Build Status| |Coverage Status| |PyPI| |PyPI|
+|Build Status| |Coverage Status| |PyPI| |Python Versions|
 
 Search your favorite recipes from `Food
 Network <http://foodnetwork.com>`__ and then scrape their contents.
@@ -67,5 +67,5 @@ For more examples check out
    :target: https://coveralls.io/github/benawad/food_network_wrapper?branch=master
 .. |PyPI| image:: https://img.shields.io/pypi/v/food_network_wrapper.svg?maxAge=2592000
    :target: https://pypi.python.org/pypi/food_network_wrapper
-.. |PyPI| image:: https://img.shields.io/pypi/pyversions/Django.svg?maxAge=2592000
+.. |Python Versions| image:: https://img.shields.io/pypi/pyversions/Django.svg?maxAge=2592000
    :target: https://pypi.python.org/pypi/food_network_wrapper

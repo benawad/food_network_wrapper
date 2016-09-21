@@ -1,24 +1,15 @@
-from setuptools.command.test import test as TestCommand
 from setuptools import setup
-
-import os
-import sys
-
-README = open(os.path.join(os.path.dirname(__file__), 'README.md')).read()
-
-os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name = 'food_network_wrapper',
     packages = ['food_network_wrapper'], 
-    version = '0.4',
+    version = '0.91',
     description = 'Allows you to easily search and scrape recipes from http://foodnetwork.com',
     author = 'Ben Awad',
     author_email = 'benawad97@gmail.com',
     url = 'https://github.com/benawad/food_network_wrapper', 
     download_url = 'https://github.com/benawad/food_network_wrapper/tarball/0.4',
     keywords = ['cooking', 'recipes', 'recipe', 'python', 'harvest', 'foodnetwork', 'scrape', 'scraping'], 
-    long_description=README,
     install_requires=[
         "beautifulsoup4",
         "lxml",

@@ -18,7 +18,15 @@ pip install food_network_wrapper
 Search recipes
 
 ```
-recipe_search("pad thai")
+rthumbnails = recipe_search("pad thai")
+```
+
+Returns up to 10 `RThumbnail` objects in a list
+
+To get more recipes you have to increment the `page` parameter
+
+```
+rthumbnails = recipe_search("pad thai", page=2)
 ```
 
 

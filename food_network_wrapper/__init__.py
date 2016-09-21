@@ -47,9 +47,25 @@ def _parse_recipe_thumbnail(recipe_thumbnail):
     return RThumbnail(title, url, author, picture_url, total_time, rating, review_count)
 
 
-def _parse_recipe_list(recipe_thumbails):
-    articles = recipe_thumbails.find_all("article", {"class": "recipe"})
+def _parse_recipe_list(recipe_thumbnails):
+    articles = recipe_thumbnails.find_all("article", {"class": "recipe"})
     return list(map(_parse_recipe_thumbnail, articles))
+
+
+def get_n_recipes(query, n=10, sortby="Best Match"):
+    calls = n / 10
+    page = 1
+    rthumbnails = []
+    while calls >= 0:
+        curr_rthumbnails = recipe_search(query, page, sortby)
+        if len(curr_rthumbnails) == 0 or len(rthumbnails) >= n:
+            break
+        rthumbnails.extend(curr_rthumbnails)
+        page += 1
+        calls -= 1
+
+    return rthumbnails[:n]
+
 
 def recipe_search(query, page=1, sortby="Best Match"):
     """
@@ -61,11 +77,11 @@ def recipe_search(query, page=1, sortby="Best Match"):
         url += "&sortBy=" + sortby
     r = requests.get(url)
     soup = BeautifulSoup(r.text, "lxml")
-    recipe_thumbails = soup.find("ul", {"class": "slat feed"})
-    if recipe_thumbails is None:
+    recipe_thumbnails = soup.find("ul", {"class": "slat feed"})
+    if recipe_thumbnails is None:
         return []
     else:
-        return _parse_recipe_list(recipe_thumbails)
+        return _parse_recipe_list(recipe_thumbnails)
 
 
 def _parse_recipe(recipe_html):
@@ -129,6 +145,10 @@ def _parse_recipe(recipe_html):
 
 
 def scrape_recipe(url):
+    """
+    parameter: url to Food Network recipe
+    return: Recipe object
+    """
     r = requests.get(url)
     soup = BeautifulSoup(r.text, "lxml")
     return _parse_recipe(soup)

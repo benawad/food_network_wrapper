@@ -39,3 +39,7 @@ def test_sorting():
     assert r1.title == "Corn and Cheese Chowder"
     assert r1.author == "Ree Drummond"
 
+
+def test_last_page():
+    results = recipe_search("mango", page=102)
+    assert results

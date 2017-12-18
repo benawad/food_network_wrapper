@@ -90,10 +90,11 @@ def _parse_recipe(recipe_html):
     except AttributeError:
         title = ""
     try:
-        author = recipe_html.find("p", class_="copyright").text.split('of')[1].strip()
+        for span in recipe_html.findAll("span", attrs={'class':'o-Attribution__a-Author--Prefix'}):
+            for namespan in span.findAll("span", attrs={'class':'o-Attribution__a-Name'}):
+                author = namespan.find("a").contents[0]
     except (AttributeError, IndexError):
         author = ""
-
     try:
         times = recipe_html.find("div", class_="cooking-times").find_all("dd")
     except AttributeError:

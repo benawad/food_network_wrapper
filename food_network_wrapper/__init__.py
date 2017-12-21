@@ -128,7 +128,7 @@ def _parse_recipe(recipe_html):
         try:
             prep_mins = int(get_prep_matches.group(4))
         except (AttributeError, ValueError):
-            prep_hrs = int(0)
+            prep_mins = int(0)
         prep_minutes = (prep_hrs * 60) + prep_mins
         cook_time_minutes = total_minutes - prep_minutes
         cook_time_mins = int(cook_time_minutes % 60)

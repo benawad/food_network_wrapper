@@ -155,11 +155,6 @@ def _parse_recipe(recipe_html):
     except IndexError:
         servings = ""
     try:
-        for section in recipe_html.findAll("section", attrs={'class': 'o-RecipeInfo o-Yield'}):
-            servings = section.find("dd", attrs={'class': 'o-RecipeInfo__a-Description'}).string.strip()
-    except IndexError:
-        level = ""
-    try:
         ings_div = recipe_html.find("div", class_="ingredients")
         ingredients = list(map(lambda x: x.text, ings_div.find_all("li", itemprop="ingredients")))
     except AttributeError:

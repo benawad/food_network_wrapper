@@ -9,7 +9,7 @@ def test_apple_crisp():
     assert recipe.cook_time == "45 min"
     assert recipe.servings == "6 to 8 servings"
     assert recipe.level == "Easy"
-    assert recipe.picture_url == "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2010/10/21/1/CCKEL109L_Apple-Crisp_s4x3.jpg.rend.sni12col.landscape.jpeg"
+    assert recipe.picture_url == "//food.fnr.sndimg.com/content/dam/images/food/fullset/2010/10/21/1/CCKEL109L_Apple-Crisp_s4x3.jpg.rend.hgtvcom.616.462.suffix/1389218661960.jpeg"
     assert recipe.ingredients == [
             "6 baking apples, peeled, cored, and cut into wedges",
             "1 tablespoon lemon juice",

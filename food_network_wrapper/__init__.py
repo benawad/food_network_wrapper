@@ -146,9 +146,10 @@ def _parse_recipe(recipe_html):
     except AttributeError:
         picture_url = ""
     try:
-        difficulty = recipe_html.find("div", class_="difficulty").find_all('dd')
+        for section in recipe_html.findAll("section", attrs={'class': 'o-RecipeInfo o-Level'}):
+            level = section.find("dd", attrs={'class': 'o-RecipeInfo__a-Description'}).string.strip()
     except AttributeError:
-        difficulty = []
+        level = ""
     try:
         servings = difficulty[0].text
     except IndexError:

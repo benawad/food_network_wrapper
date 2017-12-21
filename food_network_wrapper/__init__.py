@@ -124,7 +124,8 @@ def _parse_recipe(recipe_html):
     except IndexError:
         servings = ""
     try:
-        level = difficulty[1].text
+        for section in recipe_html.findAll("section", attrs={'class': 'o-RecipeInfo o-Yield'}):
+            servings = section.find("dd", attrs={'class': 'o-RecipeInfo__a-Description'}).string.strip()
     except IndexError:
         level = ""
     try:

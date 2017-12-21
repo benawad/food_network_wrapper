@@ -169,9 +169,15 @@ def _parse_recipe(recipe_html):
     except AttributeError:
         directions = []
     try:
-        categories = list(map(lambda x: x.text, recipe_html.find("ul", class_="categories").find_all("li", itemprop="recipeCategory")))
-    except AttributeError:
         categories = []
+        for tag in recipe_html.findAll("a", attrs={'class': 'o-Capsule__a-Tag a-Tag'}):
+            categories.append(tag.text)
+        if not categories:
+            raise ValueError('Categories list is empty')
+    except (ValueError, UnboundLocalError) as ex:
+        categories = []
+        print("Categories parsing threw error: ", ex)
+
 
     return Recipe(title, author, picture_url, total_time, prep_time, cook_time, servings, level, ingredients, directions, categories)
 

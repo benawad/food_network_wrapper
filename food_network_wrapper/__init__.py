@@ -124,10 +124,6 @@ def _parse_recipe(recipe_html):
     except IndexError:
         servings = ""
     try:
-        level = difficulty[1].text
-    except IndexError:
-        level = ""
-    try:
         ings_div = recipe_html.find("div", class_="ingredients")
         ingredients = list(map(lambda x: x.text, ings_div.find_all("li", itemprop="ingredients")))
     except AttributeError:

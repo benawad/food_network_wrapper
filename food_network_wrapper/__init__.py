@@ -108,7 +108,37 @@ def _parse_recipe(recipe_html):
     except IndexError:
         prep_time = ""
     try:
-        cook_time = times[2].text
+        tot_hrs = tot_mins = total_minutes = prep_hrs = prep_mins = prep_minutes = int()
+        get_tot_matches = re.match('((\d+) hr )?((\d+) min)?', total_time)
+        get_prep_matches = re.match('((\d+) hr )?((\d+) min)?', prep_time)
+        try:
+            tot_hrs = int(get_tot_matches.group(2))
+        except (AttributeError, ValueError):
+            tot_hrs = int(0)
+            print("Total regex fallthrough")
+        try:
+            tot_mins = int(get_tot_matches.group(4))
+        except (AttributeError, ValueError):
+            tot_mins = int(0)
+        total_minutes = (tot_hrs * 60) + tot_mins
+        try:
+            prep_hrs = int(get_prep_matches.group(2))
+        except (AttributeError, ValueError):
+            prep_hrs = int(0)
+        try:
+            prep_mins = int(get_prep_matches.group(4))
+        except (AttributeError, ValueError):
+            prep_mins = int(0)
+        prep_minutes = (prep_hrs * 60) + prep_mins
+        cook_time_minutes = total_minutes - prep_minutes
+        cook_time_mins = int(cook_time_minutes % 60)
+        cook_time_hrs = int(cook_time_minutes / 60)
+        if cook_time_hrs > 0:
+            cook_time = str(cook_time_hrs) + " hr " + str(cook_time_minutes) + " min"
+        else:
+            cook_time = str(cook_time_minutes) + " min"
+        print(prep_hrs, prep_minutes, tot_hrs, total_minutes, cook_time_hrs,
+              cook_time_minutes, cook_time_mins)
     except IndexError:
         cook_time = ""
     try:

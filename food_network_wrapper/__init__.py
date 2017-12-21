@@ -142,7 +142,7 @@ def _parse_recipe(recipe_html):
     except IndexError:
         cook_time = ""
     try:
-        picture_url = recipe_html.find("a", href="#lightbox-recipe-image").find("img").attrs['src']
+        picture_url = recipe_html.find("div", attrs={'class': 'o-AssetMultiMedia__m-MediaWrap'}).find("img").attrs['src']
     except AttributeError:
         picture_url = ""
     try:

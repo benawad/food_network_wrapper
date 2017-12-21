@@ -34,4 +34,9 @@ def test_apple_crisp():
             "Sprinkle the topping evenly over the fruit. Bake the apple crisp until the fruit is bubbling and the topping is golden brown and crisp, about 45 minutes.",
             "Serve the crisps warm with vanilla bean ice cream or fresh whipped cream, if desired.",
     ]
-    assert recipe.categories == ["Apple", "Dessert", "Pastry"]
+    assert compare(recipe.categories,
+                   ['Pastry Recipes',
+                    'Apple', 'Fruit',
+                    'Dessert',
+                    'Fruit',
+                    'Raspberry Recipes'])

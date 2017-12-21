@@ -162,8 +162,10 @@ def _parse_recipe(recipe_html):
     except AttributeError:
         ingredients = []
     try:
-        desc_ul = recipe_html.find("ul", class_="recipe-directions-list").find_all("li")
-        directions = list(map(lambda x: x.text, desc_ul))
+        for desc_div in recipe_html.findAll("div", attrs={'class': 'o-Method__m-Body'}):
+            directions = list(map(lambda x: x.text, desc_div.find_all("p")))
+            directions = [d.replace('\n','') for d in directions]
+            directions = [d.strip() for d in directions]
     except AttributeError:
         directions = []
     try:

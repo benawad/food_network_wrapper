@@ -155,8 +155,9 @@ def _parse_recipe(recipe_html):
     except IndexError:
         servings = ""
     try:
-        ings_div = recipe_html.find("div", class_="ingredients")
-        ingredients = list(map(lambda x: x.text, ings_div.find_all("li", itemprop="ingredients")))
+        ings_div = recipe_html.find("div", attrs={'class': "o-Ingredients__m-Body"})
+        ingredients = list(map(lambda x: x.text, ings_div.find_all("li", attrs={'class': 'o-Ingredients__a-ListItem'})))
+        ingredients = [i.replace('\n','') for i in ingredients]
     except AttributeError:
         ingredients = []
     try:

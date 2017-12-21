@@ -1,4 +1,5 @@
 from food_network_wrapper import scrape_recipe
+import collections
 
 def test_apple_crisp():
     recipe = scrape_recipe("http://www.foodnetwork.com/recipes/apple-crisp.html")
@@ -10,7 +11,8 @@ def test_apple_crisp():
     assert recipe.servings == "6 to 8 servings"
     assert recipe.level == "Easy"
     assert recipe.picture_url == "//food.fnr.sndimg.com/content/dam/images/food/fullset/2010/10/21/1/CCKEL109L_Apple-Crisp_s4x3.jpg.rend.hgtvcom.616.462.suffix/1389218661960.jpeg"
-    assert recipe.ingredients == [
+    compare = lambda x, y: collections.Counter(x) == collections.Counter(y)
+    assert compare(recipe.ingredients,[
             "6 baking apples, peeled, cored, and cut into wedges",
             "1 tablespoon lemon juice",
             "1/2 cup sugar",
@@ -22,7 +24,7 @@ def test_apple_crisp():
             "1/4 teaspoon salt",
             "12 tablespoons butter (1 1/2 sticks), chilled and cut into small pieces",
             "1/2 cup nuts, coarsely chopped and toasted",
-    ]
+    ])
     assert recipe.directions == [
             "Preheat the oven to 350 degrees F.",
             "For the fruit filling:",

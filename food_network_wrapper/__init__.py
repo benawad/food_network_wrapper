@@ -24,10 +24,14 @@ def _parse_recipe_thumbnail(recipe_thumbnail):
     
     
 
+    # Parse author
     try:
-        author = recipe_thumbnail.find("p").find("a").text.strip()
-    except AttributeError:
+        author = recipe_thumbnail[0].find("span",
+                                       {"class": "m-Info__a-AssetInfo"}).text.strip()
+        author = author.replace("Courtesy of ", '')
+    except AttributeError as e:
         author = ""
+        print("DEV> parse author error: ", e)
 
     try:
         reviews_json = recipe_thumbnail.find("a", class_="community-rating-stars").attrs["data-rating"]

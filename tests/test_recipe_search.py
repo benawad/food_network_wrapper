@@ -29,15 +29,17 @@ def test_sorting():
     assert r1.title == "Roast Bacon"
     assert r1.author == "Ina Garten"
 
-    results = recipe_search("bacon", sortby="rating")
-    r1 = results[0]
-    assert r1.title == "Cocoa-Rubbed Steak With Bacon-Whiskey Gravy"
-    assert r1.author == "Food Network Kitchen"
 
-    results = recipe_search("bacon", sortby="popular")
-    r1 = results[0]
-    assert r1.title == "Corn and Cheese Chowder"
-    assert r1.author == "Ree Drummond"
+    # Removing sortby tests, as FoodNetwork appears to have eliminated search sorting
+    #results = recipe_search("bacon", sortby="rating")
+    #r1 = results[0]
+    #assert r1.title == "Cocoa-Rubbed Steak With Bacon-Whiskey Gravy"
+    #assert r1.author == "Food Network Kitchen"
+
+    #results = recipe_search("bacon", sortby="popular")
+    #r1 = results[0]
+    #assert r1.title == "Corn and Cheese Chowder"
+    #assert r1.author == "Ree Drummond"
 
 
 def test_last_page():

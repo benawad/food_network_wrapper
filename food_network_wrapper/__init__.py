@@ -11,11 +11,14 @@ base_url = "http://www.foodnetwork.com"
 
 
 def _parse_recipe_thumbnail(recipe_thumbnail):
+    # Parse title and URL
     try:
-        h6 = recipe_thumbnail.find("h6")
-        title = h6.text.strip()
-        url = base_url + h6.find("a").attrs['href']
-    except AttributeError:
+        for row in recipe_thumbnail:
+            title = row.find(
+                "span", {"class": "m-MediaBlock__a-HeadlineText"}).text.strip()
+            url = base_url + row.find("a").attrs['href']
+    except (AttributeError, UnboundLocalError) as e:
+        print("Parcing title/url threw error", e)
         title = ""
         url = ""
     
